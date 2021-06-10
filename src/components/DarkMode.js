@@ -13,10 +13,10 @@ const Container = styled.div`
   position: fixed;
   top: 20px;
   left: 20px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   color: ${(props) => (props.isDark ? null : "#ecf0f1")};
+  cursor: pointer;
 `;
 
 function DarkMode() {

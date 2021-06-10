@@ -74,7 +74,6 @@ function SignUp() {
     if (loading) return;
     createAccount({ variables: { ...data } });
   };
-
   return (
     <AuthLayout>
       <PageTitle title="Sign Up" />
@@ -133,7 +132,10 @@ function SignUp() {
                 placeholder="Password"
               />
             </AuthInputCon>
-            <AuthButton>Sign Up</AuthButton>
+            {/* <PhotoUploader title="avatar" register={register} name="avartar" /> */}
+            <AuthButton disabled={!formState.isValid || loading}>
+              Sign Up
+            </AuthButton>
           </form>
         </AuthForm>
       </AuthBox>

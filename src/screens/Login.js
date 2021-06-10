@@ -86,7 +86,9 @@ function Login() {
                 placeholder="Password"
               />
             </AuthInputCon>
-            <AuthButton>Log In</AuthButton>
+            <AuthButton disabled={!formState.isValid || loading}>
+              Log In
+            </AuthButton>
           </form>
         </AuthForm>
       </AuthBox>

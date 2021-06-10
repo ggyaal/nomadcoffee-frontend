@@ -10,6 +10,7 @@ const AuthButton = styled.button`
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 `;
 
 export default AuthButton;
