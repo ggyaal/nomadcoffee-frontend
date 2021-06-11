@@ -43,7 +43,7 @@ const User = styled.div`
 
 function Shop() {
   const { id } = useParams();
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const { loading, data } = useQuery(SEE_COFFEESHOP_QUERY, {
     variables: { id: parseInt(id, 10), page },
   });

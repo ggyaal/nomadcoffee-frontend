@@ -14,18 +14,8 @@ import { useHistory } from "react-router";
 import { Info } from "../components/shared";
 
 const CREATE_COFFEESHOP_MUTATION = gql`
-  mutation createCoffeeShop(
-    $name: String!
-    $categories: String
-    $latitude: String
-    $logitude: String
-  ) {
-    createCoffeeShop(
-      name: $name
-      categories: $categories
-      latitude: $latitude
-      longitude: $longitude
-    ) {
+  mutation createCoffeeShop($name: String!, $categories: String) {
+    createCoffeeShop(name: $name, categories: $categories) {
       ok
       error
     }
@@ -57,9 +47,6 @@ function AddShop() {
 
   const onSubmitValid = (data) => {
     if (loading) return;
-    console.log(data);
-    console.log(typeof data.name);
-    console.log(typeof data.categories);
     createCoffeeShop({ variables: { ...data } });
   };
 
@@ -93,20 +80,6 @@ function AddShop() {
                 {...register("categories")}
                 onFocus={() => clearErrors()}
                 placeholder="categories"
-              />
-            </AuthInputCon>
-            <AuthInputCon message={errors?.latitude?.message}>
-              <AuthInput
-                type="text"
-                {...register("latitude")}
-                placeholder="latitude"
-              />
-            </AuthInputCon>
-            <AuthInputCon message={errors?.longitude?.message}>
-              <AuthInput
-                type="text"
-                {...register("longitude")}
-                placeholder="longitude"
               />
             </AuthInputCon>
             {/* <PhotoUploader title="photos" register={register} name="photos" /> */}
